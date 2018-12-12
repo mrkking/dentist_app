@@ -16,21 +16,25 @@
     				  /* background style */
 <style>
 body, html {
-  height: 100%;
-  margin: 0;
+    /*height: 100%;*/
+    padding: 0 !important;
 }
 
 .bg {
-  /* The image used */
-  background-image: url("images/login.jpg");
+    /* The image used */
+    background-image: url("images/login.jpg");
 
-  /* Full height */
-  height: 100%; 
-
-  /* Center and scale the image nicely */
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+    /* Full height */
+    /*height: 100%;*/
+    /* Center and scale th
+    e image nicely */
+    border: 1px solid black;
+    margin-top: 40px !important;
+    /*margin-bottom: -100px !important;*/
+    height: calc(100vh - 30px) !important;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 </style>
 
@@ -39,7 +43,7 @@ body, html {
 
 <body>
  /* placing the image as background */
-  <div class="bg">
+ <div class="bg">
     <nav class="navbar navbar-expand-sm bg-light navbar-light" style="position: fixed; width: 100%; top: 0; z-index: 1;">
     <div class="container"> <button class="navbar-toggler navbar-toggler-right border-0 p-0" type="button" data-toggle="collapse" data-target="#navbar14">
         <p class="navbar-brand mb-0 text-blue">
@@ -61,7 +65,7 @@ body, html {
     </div>
   </nav>
       
-  <div class="py-5 text-center" style="height: 100%; margin-top: 100px;">
+  <div class="py-5 text-center">
     <div class="container">
       <div class="row">
         <div class="mx-auto col-md-6 col-10 bg-white p-5">

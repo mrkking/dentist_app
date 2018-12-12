@@ -6,13 +6,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
   <link rel="stylesheet" href="./css/theme.css" type="text/css">
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
- 
  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
 
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 
   
   <script type="text/javascript" src="./js/script.js"></script>
+  
 </head>
 
 <body>
@@ -30,9 +30,13 @@
         </ul>
         <p class="d-none d-md-block lead mb-0  text-gray"><i class="fas fa-tooth"></i></i> <b> Royal Dental</b> </p> 
         <ul class="navbar-nav ml-auto">
-          <li class="nav-item mx-1"> <a class="nav-link" href="./login.html"> <em class="fa fa-user fa-fw fa-lg text-gray"></em> </a></li>
+
+          <li class="nav-item mx-1"> <a id="profile" class="nav-link" href="#">
+              <i class="fa fa-user fa-fw fa-lg text-dark"></i>
+            </a> </li>
           <li class="nav-item mx-1"> <a class="nav-link" href="#">
-            </a> </li><a class="btn btn-light" style="border-radius: 0; background-color: darkgrey; color: white; border: 1px solid #878787;" href="./register.html">Register</a>
+            </a> </li><a class="btn btn-light" style="border-radius: 0; background-color: #000; color: white; border: 1px solid white;" href="./register.html">Register</a>
+
           <li class="nav-item mx-1"> <a class="nav-link" href="#">
             </a> </li>
         </ul>
@@ -45,12 +49,14 @@
     </div>
   </div>
   <div class="py-5 text-center text-white" style="background-color: #000;background-image: url(https://dentistry.ucsf.edu/sites/default/files/2018-06/idp_2018_hero_0.jpg);  background-position: left left, left left;  background-size: cover;  background-repeat: repeat, repeat; height: 80vh">
-    <span style="position: absolute; top: 64px; height: 80vh; width: 100vw; background-color: rgba(20,20,116, 0.6); left: 0"></span>
+    <span style="margin: 0; position: absolute; top: 64px; height: 77.3vh; width: 100vw; background-color: rgba(20,20,116, 0.6); left: 0"></span>
     <div class="container">
       <div class="row" style="background-color: rgba(0,0,0,0.8); height: 300px; width: 500px; padding: 20px; left: 0; margin: 100px auto;">
         <div class="col-md-8 mx-auto">
           <h1 class="mb-3">Royal Dental Care</h1>
-          <p class="lead mb-0">Proffessional dental service at your convenience.</p> <a class="btn btn-primary m-3" style="" href="./appointment.html">Book now</a>
+
+          <p class="lead mb-0">Proffessional dental service at your convenience.</p> <button id="book" class="btn btn-primary m-3" style="" href="#">Book now</button>
+
         </div>
       </div>
     </div>
