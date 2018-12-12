@@ -13,8 +13,8 @@
     $cnct = $dbcnct ->getConnection();
     $app = new appointment($cnct);
 
-    if(!empty($_GET['user_id'])) {
-        $data = $app->getAppointmentByUserID($_GET['user_id']);
+    if(!empty($_GET['user'])) {
+        $data = $app->getAppointmentByUserID($_GET['user']);
         echo json_encode($data);
     }
 

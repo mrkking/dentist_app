@@ -39,27 +39,32 @@ class db {
     public function update($table, $data) {
         $sql = "UPDATE " . $table . " SET ";
         foreach (array_keys($data) as $index => $key) {
-            if ($key != 'id') {
-                switch (gettype($data[$key])) {
-                    case 'integer':
-                        $sql = $sql . $key . " =  " . $data[$key] . " ";
-                        break;
-                    case 'double':
-                        $sql = $sql . $key . " =  " . $data[$key] . " ";
-                        break;
-                    default:
-                        $sql = $sql . $key . " =  \"" . $data[$key] . "\" ";
-                        break;
-                }
-                if ($index !== sizeof(array_keys($data)) - 1){
-                    $sql .= " , ";
-                }
+            if($key == 'id'){
+                continue;
+            }
+
+            switch (gettype($data[$key])) {
+                case 'integer':
+                    $sql = $sql . $key . " =  " . $data[$key] . " ";
+                    break;
+                case 'double':
+                    $sql = $sql . $key . " =  " . $data[$key] . " ";
+                    break;
+                case 'string':
+                    $sql = $sql . $key . " =  \"" . $data[$key] . "\" ";
+                    break;
+                default:
+                    break;
+            }
+            if ($index !== sizeof(array_keys($data)) - 2){
+                $sql .= " , ";
             }
         }
         $sql = $sql . " WHERE  id = " . $data['id'];
         try {
-            $this->connection->prepare($sql)->execute();
-            return 'record updated';
+            $connection = $this->getConnection();
+            $connection->query($sql);
+            return 'success';
         } catch(PDOException $err) {
             echo $err->getMessage();
             http_response_code(400);

@@ -13,6 +13,10 @@
     $cnct = $dbcnct ->getConnection();
     $user = new member($cnct);
 
-    if(!empty($_POST)){
-        echo $dbcnct->update('member', $_POST);
+
+    if(file_get_contents( 'php://input' )) {
+        echo $user->update(file_get_contents( 'php://input' ));
+    } else {
+        http_response_code(422);
+        echo 'invalid parameters';
     }

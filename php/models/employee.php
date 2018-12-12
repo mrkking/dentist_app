@@ -29,7 +29,7 @@
             ")";
             try {
                 $this->connection->exec($sql);
-                return 'empl0yee created';
+                return 'employee created';
             } catch (PDOException $err) {
                 http_response_code(400);
                 switch ($err->getCode()) {

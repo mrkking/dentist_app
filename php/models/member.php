@@ -69,6 +69,7 @@ class member {
 
     //U
     public function update($data){
+        $data = json_decode( $data , true );
         return $this->db->update($this->table_name, $data);
     }
     //D

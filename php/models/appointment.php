@@ -49,14 +49,19 @@ class appointment
     }
 
     public function getAppointmentByUserID($id){
-        $stmt = $this->connection->query('select * from ' . $this->table_name . ' WHERE member =  "'. $id . '"');
-        $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        return $data;
+        try {
+            $stmt = $this->connection->query('select * from ' . $this->table_name . ' WHERE member_id =  "'. $id . '"');
+            $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            return $data;
+        }catch (PDOException $err) {
+            return $err->getMessage();
+        }
+
     }
 
     public function getAppointmentsByDate($date) {
         try{
-            $stmt = $this->connection->query('select * from ' . $this->table_name . ' WHERE date =  "'. $date . '"');
+            $stmt = $this->connection->query('select * from ' . $this->table_name . ' WHERE app_date =  "'. $date . '"');
             $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
             return $data;
         }catch(PDOException $err) {
