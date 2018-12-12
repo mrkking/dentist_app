@@ -13,6 +13,9 @@
     $cnct = $dbcnct ->getConnection();
     $app = new appointment($cnct);
 
-    if ($_POST){
-        echo $app->create($_POST);
+    if(file_get_contents( 'php://input' )) {
+        echo $app->create(file_get_contents( 'php://input' ));
+    } else {
+        http_response_code(422);
+        echo 'invalid parameters';
     }

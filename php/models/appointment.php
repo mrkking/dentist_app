@@ -6,6 +6,10 @@
  * Time: 11:04 AM
  */
 
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
 class appointment
 {
     private $connection;
@@ -23,15 +27,16 @@ class appointment
 
     //C
     public function create($app_data){
-        $sql = "INSERT INTO " . $this->table_name . " (member, date, time, visit_reason) VALUES (?,?,?,?)";
+        $data = json_decode( $app_data , true );
+        $sql = "INSERT INTO " . $this->table_name . " (member_id, app_date, app_time, emp_id, service_id, visit_reason) VALUES (?,?,?,?,?,?)";
 
         $vars = [];
-        foreach ($app_data as $val) {
+        foreach ($data as $val) {
             array_push($vars, $val);
         }
         try{
             $this->connection->prepare($sql)->execute($vars);
-            return json_encode($this->getAppointmentByUserID($app_data['id']));
+            return 'success';
         } catch(PDOException $err) {
             echo $err;
             http_response_code(400);

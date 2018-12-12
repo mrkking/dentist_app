@@ -5,6 +5,9 @@
  * Date: 12/10/18
  * Time: 2:17 PM
  */
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
     include_once '../db.php';
 
     class employee

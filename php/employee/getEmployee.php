@@ -14,5 +14,8 @@
     $emp = new employee($cnct);
 
     if (empty($_GET)) {
-        return $emp->read();
+        $data = $cnct->prepare('SELECT e.id, e.start_date, m.first_name, m.last_name, m.role, m.id as member FROM employee e join member m WHERE m.id = e.member_id');
+        $data->execute();
+        $s = $data->fetchAll(PDO::FETCH_ASSOC);
+        print_r(json_encode($s));
     }

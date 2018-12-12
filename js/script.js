@@ -5,9 +5,25 @@ $(window).on('load', () => {
   let user = null;
   let user_apps = null;
   let employees = null;
+  let services = null;
+
   getEmployees().then(data => {
     console.log(data);
     employees = data;
+    employees.forEach(emp => {
+      $('#empl_select').append(`
+        <option value="${emp['id']}">Dr. ${emp['first_name']} , ${emp['last_name']}</option>
+      `);
+    });
+  });
+
+  getServices().then(serv => {
+    services = serv;
+    services.forEach(s => {
+      $('#service_select').append(`
+        <option value="${s['id']}">${s['name']}</option>
+      `);
+    });
   });
 
   $('#alert').hide();
@@ -78,6 +94,21 @@ $(window).on('load', () => {
 
   });
 
+  $('#appointmentForm').submit((e) => {
+    e.preventDefault();
+    const data = {
+      member_id: user_id,
+      app_date: $(`input[name='app_date']`).val(),
+      app_time: $(`input[id='timepicker']`).val(),
+      emp_id: $('select#empl_select').children('option:selected').val(),
+      service_id: $('select#service_select').children('option:selected').val(),
+      visit_reason: $(`input[name='visit_type']`).val()
+    };
+    createAppointment(data).then(data => {
+      $('#appointmentForm').find('#error').html(data);
+    });
+  });
+
   if([
         '/appointment.html',
         '/profile.html'
@@ -87,9 +118,20 @@ $(window).on('load', () => {
       window.location = './index.html';
     }
 
+  $('#reg_btn').click((e) => {
+    e.preventDefault();
+    if(user_id){
+      localStorage.removeItem('user');
+      window.location = './index.html'
+    }else{
+      window.location = './register.html'
+    }
+  });
+
   if(user_id) {
       refetchUser();
       fetchUserApps();
+      $('#reg_btn').html('Log Out')
   }
 
   function refetchUser (){
@@ -107,7 +149,6 @@ $(window).on('load', () => {
       console.log(data);
       user_apps = data;
       user_apps.forEach((item, index) => {
-        console.log(item);
         $('#table_body').append(`
       <tr>
           <th scope="row">${index+1}</th>
@@ -150,6 +191,12 @@ $(window).on('load', () => {
     })
   });
 
+  $('#timepicker').timepicker({
+    template: false,
+    showInputs: false,
+    minuteStep: 5
+  });
+
 });
 
 const empty = (cur_val) => {
@@ -167,13 +214,13 @@ const setupProfileForm = (user) => {
 
 async function loginUser(data){
     return await fetch(
-        `${BASE_LINK}member/getMember.php?email=${data.email}&password=${data.password}`
+        `./php/member/getMember.php?email=${data.email}&password=${data.password}`
     ).then(data => data.json());
 }
 
 async function createUser(data){
     return await fetch(
-        `${BASE_LINK}member/createMember.php`,
+        `./php/member/createMember.php`,
         {
             method: 'POST',
             body: JSON.stringify(data)
@@ -184,7 +231,7 @@ async function createUser(data){
 async function updateUser(data){
   console.log(data);
     return await fetch(
-        `${BASE_LINK}member/updateMember.php`,
+        `./php/member/updateMember.php`,
         {
           method: 'POST',
           body: JSON.stringify(data)
@@ -206,10 +253,22 @@ async function getUserAppointments(id){
 
 async function getEmployees(){
   return fetch(
-      './php/employee/getEmployees.php'
+      './php/employee/getEmployee.php'
+  ).then(data => data.json());
+}
+
+async function getServices(){
+  return fetch(
+      './php/service/getService.php'
   ).then(data => data.json());
 }
 
 async function createAppointment(data){
-
+  return await fetch(
+      `./php/appointments/createAppointment.php`,
+      {
+        method: 'POST',
+        body: JSON.stringify(data)
+      }
+  ).then(data => data.text());
 }
