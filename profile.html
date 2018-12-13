@@ -48,6 +48,7 @@
           <ul class="nav nav-pills flex-column">
             <li class="nav-item"> <a class="nav-link" href="" data-toggle="pill" data-target="#tabone" style="border-radius: 0 !important;">Personal Info</a> </li>
             <li class="nav-item"> <a href="" class="nav-link active show" data-toggle="pill" data-target="#tabtwo" style="border-radius: 0 !important;">Appointments</a> </li>
+            <li class="nav-item"> <a class="nav-link" href="" data-toggle="pill" data-target="#tabthree" style="border-radius: 0 !important;">Employee</a> </li>
           </ul>
         </div>
         <div class="col-12" style="height: 500px">
@@ -68,9 +69,7 @@
                 <div class="form-group"> <label for="form18">Phone</label> <input type="email" name="phone" class="form-control" id="form18" placeholder="j.goethe@werther.com"> </div>
                 <div class="form-group"> <label for="form19">Password</label> <input type="password" name="password" class="form-control" id="form19" placeholder="••••"> </div>
                 <div class="form-group"> <label for="form120">Date of birth</label> <input type="date" name="dob" class="form-control" id="form1230"/> </div>
-
-
-                  <div class="form-group"> <label for="form120">Address</label> <textarea type="text" name="address" class="form-control" id="form120" placeholder="Werther Inc."></textarea> </div>
+                 <div class="form-group"> <label for="form120">Address</label> <textarea type="text" name="address" class="form-control" id="form120" placeholder="Werther Inc."></textarea> </div>
                 <div class="form-group">
                   <label for="form17">Gender:</label>
                   <select name="gender">
@@ -79,10 +78,11 @@
                     <option>O</option>
                   </select>
                 </div>
-                  <p id="#error" style="text-align: center; color: red;"></p>
+                <p id="#error" style="text-align: center; color: red;"></p>
                 <button type="submit" class="btn btn-primary">Update Profile</button>
-              </form>
+              	</form>
             </div>
+            
             <div class="tab-pane fade active show" id="tabtwo" role="tabpanel">
               <div class="col-md-12">
                   <table class="table" style="max-height: 500px;">
@@ -101,6 +101,26 @@
                   </table>
               </div>
             </div>
+            
+            <div class="tab-pane fade" id="tabthree" role="tabpanel">
+              <form class="text-left" id="profileForm">
+                <div class="form-row">
+                  <div class="form-group col-md-4">
+                    <label for="form19">Start Date</label>
+                    <input type="text" name="start_date" class="form-control" id="startdate" >
+                  </div>
+                  <div class="form-group col-md-4">
+                      <label for="form20">Certification</label>
+                      <input type="text" name="certification" class="form-control" id="certification">
+                  </div>
+                </div>
+                <div class="form-group"> <label for="form17">Expiration</label> <input type="text" name="expiration" class="form-control" id="expiration" > </div>
+               <div class="form-group"> <label for="form17">Member ID</label> <input type="text" name="member_id" class="form-control" id="member_id" > </div>
+                  <p id="#error" style="text-align: center; color: red;"></p>
+                <button type="submit" class="btn btn-primary">Update Profile</button>
+              </form>
+            </div>
+            
           </div>
         </div>
       </div>

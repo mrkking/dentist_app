@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<title>Royal Dental Register</title>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="./css/theme.css" type="text/css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+
+
+    <script type="text/javascript" src="./js/script.js"></script>
+<style>
+body, html {
+  /*height: 100%;*/
+  padding: 0;
+}
+
+.bg {
+  /* The image used */
+  background-image: url("images/register.jpg");
+
+  /* Full height */
+  /*height: 100%;*/
+  /* Center and scale th
+  e image nicely */
+    border: 1px solid black;
+    margin-top: 55px !important;
+    height: calc(100vh - 55px) !important;
+    background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+	</style>
+</head>
+
+<body >
+  <div class="py-5 bg">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <form class="text-left" id="registerForm">
+            <div class="form-row">
+
+              <div class="form-group col-md-6"> <label for="form19">Firstname</label> <input type="text" name="first_name" class="form-control" id="form19" placeholder="first"> </div>
+              <div class="form-group col-md-6"> <label for="form20">Lastname</label> <input type="text" name="last_name" class="form-control" id="form21" placeholder="last"> </div>
+
+            </div>
+            <div class="form-group"> <label for="form17">Email</label> <input type="text" name="email" class="form-control" id="form17" placeholder="johndoe@email.com"></div>
+            <div class="form-group"> <label for="form18">Phone</label> <input type="phone" name="phone" class="form-control" id="form18" placeholder="Include Area Code  "></div>
+            <div class="form-row">
+              <div class="form-group col-md-6"> <label for="form19">Password</label> <input type="password" name="password" class="form-control" id="form180" placeholder="••••"> </div>
+              <div class="form-group col-md-6"> <label for="form20">Confirm Password</label> <input type="password" class="form-control" id="form20" placeholder="••••"> </div>
+            </div>
+            <div class="form-group">
+              <label for="form17">Gender:</label>
+              <select name="gender">
+                <option>M</option>
+                <option>F</option>
+                <option>O</option>
+              </select>
+            </div>
+            <p id='error' style="color: red; text-align: center;"></p>
+            <button type="submit" class="btn btn-secondary">Register</button>
+            <div style="text-align: center;">
+              <a class="row btn text-light" href="./login.html">Already have an account? Sign In</a>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="alert" class="alert alert-success" style="width: 300px; left: calc(50% - 150px); text-align: center; position: absolute; top: 0px;" role="alert">
+      <a href="#" class="alert-link">Registration successful</a>
+  </div>
+  <nav class="navbar navbar-expand-sm bg-light navbar-light" style="position: fixed; width: 100%; top: 0; z-index: 1;">
+      <div class="container"> <button class="navbar-toggler navbar-toggler-right border-0 p-0" type="button" data-toggle="collapse" data-target="#navbar14">
+          <p class="navbar-brand mb-0 text-blue">
+              <i class="fas fa-crown"></i> Royal Dental </p>
+      </button>
+          <div class="collapse navbar-collapse" id="navbar14">
+              <ul class="navbar-nav mr-auto">
+                  <li class="nav-item"> <a class="nav-link" href="./index.html">Home</a> </li>
+                  <li class="nav-item"> <a class="nav-link" href="#services">Services</a></li>
+                  <li class="nav-item text-light"> <a class="nav-link" href="#about">About</a> </li>
+
+              </ul>
+              <p class="d-none d-md-block lead mb-0  text-gray"><i class="fas fa-tooth"></i></i> <b> Royal Dental</b> </p>
+              <ul class="navbar-nav ml-auto">
+
+                  <li class="nav-item mx-1"> <a id="profile" class="nav-link" href="#">
+                      <i class="fa fa-user fa-fw fa-lg text-dark"></i>
+                  </a> </li>
+                  <li class="nav-item mx-1"> <a class="nav-link" href="#">
+                  </a> </li><button id="reg_btn" class="btn btn-light" style="border-radius: 0; background-color: #000; color: white; border: 1px solid white;" href="./register.html">Register</button>
+
+                  <li class="nav-item mx-1"> <a class="nav-link" href="#">
+                  </a> </li>
+              </ul>
+          </div>
+      </div>
+  </nav>
+
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+</body>
+
+</html>
